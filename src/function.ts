@@ -1,10 +1,10 @@
 //normal function
 
-function add(num1: number, num2: number): number {
+function add(num1: number, num2: number = 20): number {
   return num1 + num2;
 }
 
-console.log(add(2, 3));
+console.log(add(2));
 
 //arrow function
 
