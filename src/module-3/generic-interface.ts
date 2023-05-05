@@ -1,3 +1,49 @@
+//generic interface
+
+interface CrushInterface<T, U = null> {
+  name: string;
+  husband: T;
+  wife?: U;
+}
+
+const crush4: CrushInterface<boolean, string> = {
+  name: "sultana",
+  husband: true,
+  wife: "sultana",
+};
+
+const crush5: CrushInterface<string> = { name: "sultana", husband: "Nayim" };
+
+interface PersonInterface {
+  name: string;
+  age: number;
+}
+
+const crush7: CrushInterface<PersonInterface, PersonInterface> = {
+  name: "sultana",
+  husband: {
+    name: "nayim",
+    age: 23,
+  },
+  wife: {
+    name: "sultana",
+    age: 40,
+  },
+};
+
+interface husbandInterface {
+  name: string;
+  salary: number;
+}
+
+const crush6: CrushInterface<husbandInterface> = {
+  name: "sultana",
+  husband: {
+    name: "nayim",
+    salary: 20390,
+  },
+};
+
 type GenericTuple<x, y> = [x, y];
 
 const relation: GenericTuple<string, string> = ["nayim", "hossen"];
