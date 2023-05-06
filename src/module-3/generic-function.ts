@@ -1,41 +1,33 @@
-// //arrow function
+//arrow function
 
-// const createArray = (param: string): string[] => {
-//   return [param];
-// };
+const createArray7 = <X, Y>(p: X, p1: Y): [X, Y] => {
+  return [p, p1];
+};
 
-// const createArray1 = <x, y>(p: x, p2: y): [x, y] => {
-//   return [p, p2];
-// };
+const results1 = createArray7<boolean, string>(true, "love");
+const results2 = createArray7<string, number>("true", 23);
+const results3 = createArray7<number, Array<string>>(47, ["USA"]);
 
-// // normal function
-// function createArray2<x, y>(p: x, p2: y): [x, y] {
-//   return [p, p2];
-// }
+type Name = { name: string };
 
-// const result = createArray("Bangladesh");
-// const result2 = createArray1<string, string>("Bangladesh", "I love");
-// const result3 = createArray1<boolean, Array<string>>(true, ["hello"]);
+const results4 = createArray7<Name, boolean>({ name: "Bangladesh" }, true);
 
-// type NameType = { name: string };
+//spreed Operator
 
-// const result4 = createArray1<NameType, boolean>({ name: "Nayim Hossen" }, true);
+const crush = "Sultana";
 
-// //spread operator
+const myInfoNay = {
+  name: "Nayim Hossen",
+  age: 23,
+  salary: 20000000,
+};
 
-// const crush8 = "Sultana";
-// const myInfo = {
-//   name: "Nayim Hossen",
-//   age: 1000,
-//   salary: 20948908,
-// };
+// const newData = { ...myInfoNay, crush };
 
-// // const newDate = { ...myInfo, crush8 };
+const addMeToMyCrushMind = <T>(info: T) => {
+  const crush = "Nayim Hossen";
+  const newData = { ...info, crush };
+  return newData;
+};
 
-// const addMeToMyCrush = <T>(myInfo: T) => {
-//   const crush = "sultana";
-//   const newData = { ...myInfo, crush };
-//   return newData;
-// };
-
-// const result9 = addMeToMyCrush(myInfo);
+const result5 = addMeToMyCrushMind(myInfoNay);
