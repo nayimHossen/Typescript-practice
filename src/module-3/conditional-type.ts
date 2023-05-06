@@ -1,6 +1,6 @@
-//a type is dependent on another type
+//a type is depended on another type
 
-type a1 = string;
+type a1 = number;
 type a3 = undefined;
 type a4 = number;
 
@@ -15,21 +15,17 @@ type d = a1 extends null
   ? null
   : never;
 
-type habibi = {
+type Nayim = {
   wife1: string;
-  wife2: string;
+  wife2: String;
 };
 
-type A = keyof habibi;
+type CheckProperty<T, K> = K extends keyof T ? true : false;
 
-type CheckProperty<T, K> = K extends keyof habibi ? true : false;
+type CheckWife1 = CheckProperty<Nayim, "wife1">;
 
-type CheckWife1 = CheckProperty<habibi, "girl">;
+type friendsThree = "Monika" | "Mim" | "Sultana";
 
-//check korbe ei sheikh type a wife1 ase kina ? true : false
+type RemoveFriend<T, K> = T extends K ? never : T;
 
-type Bandubi = "a" | "b" | "c";
-
-type RemoveBandubi<T> = T extends "b" ? never : T;
-
-type CurrentBandubi = RemoveBandubi<Bandubi>;
+type CurrentFriend = RemoveFriend<friendsThree, "Monika">;
