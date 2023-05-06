@@ -1,76 +1,71 @@
-//generic interface
-
 interface CrushInterface<T, U = null> {
   name: string;
   husband: T;
   wife?: U;
 }
 
-const crush4: CrushInterface<boolean, string> = {
-  name: "sultana",
-  husband: true,
-  wife: "sultana",
+const myCrush: CrushInterface<boolean> = { name: "Sultana", husband: true };
+const myCrush2: CrushInterface<string> = {
+  name: "Jan",
+  husband: "Nayim Hossen",
 };
 
-const crush5: CrushInterface<string> = { name: "sultana", husband: "Nayim" };
+interface IHusband {
+  name: string;
+  salary: number;
+}
 
-interface PersonInterface {
+const myCrush3: CrushInterface<IHusband, string> = {
+  name: "Sultana",
+  husband: {
+    name: "Nayim Hossen",
+    salary: 802,
+  },
+  wife: "Kobita",
+};
+
+interface IPerson {
   name: string;
   age: number;
 }
 
-const crush7: CrushInterface<PersonInterface, PersonInterface> = {
-  name: "sultana",
+const myCrush4: CrushInterface<IPerson, IPerson> = {
+  name: "Sultana",
   husband: {
-    name: "nayim",
-    age: 23,
+    name: "Nayim Hossen",
+    age: 802,
   },
   wife: {
-    name: "sultana",
-    age: 40,
+    name: "Kobita",
+    age: 20,
   },
 };
 
-interface husbandInterface {
+type GenericTuples<x, y> = [x, y];
+
+const relations: GenericTuples<string, string> = ["Nayim", "Sultana"];
+
+type relationWithSalaryType = { name: string; salary: number };
+
+interface IRelationsWithSalary {
   name: string;
   salary: number;
 }
 
-const crush6: CrushInterface<husbandInterface> = {
-  name: "sultana",
-  husband: {
-    name: "nayim",
-    salary: 20390,
-  },
-};
-
-type GenericTuple<x, y> = [x, y];
-
-const relation: GenericTuple<string, string> = ["nayim", "hossen"];
-
-// type RelationWithSalaryType = { name: string; salary: number };
-
-interface RelationWithSalaryInterface {
-  name: string;
-  salary: number;
-}
-
-const relationWithSalary: GenericTuple<RelationWithSalaryInterface, string> = [
-  { name: "Nayim", salary: 10000 },
+const relationWithSalaryOne: GenericTuples<IRelationsWithSalary, string> = [
+  { name: "Nayim Hossen", salary: 2000 },
   "Sultana",
 ];
 
-type GenericArray<T> = Array<T>;
+type GenericArrays<T> = Array<T>;
 
-const rollNumber2: GenericArray<number> = [2, 3, 4, 5, 6];
+const rollNumbers3: GenericArrays<number> = [1, 2, 3, 4, 5];
+const rollNumbers4: GenericArrays<string> = ["1", "2", "3", "4", "5"];
+const rollNumbers5: GenericArrays<boolean> = [true, false];
 
-const rollNumber3: GenericArray<string> = ["1", "2", "4"];
+type nameRollType = { name: string; roll: number };
 
-const rollNumber4: GenericArray<boolean> = [true, false];
-
-type NameRollType = { name: string; roll: number };
-
-const userNameAndRoll: Array<NameRollType> = [
-  { name: "Nayim", roll: 23 },
-  { name: "Hossen", roll: 40 },
+const userNameAndRollNumber: GenericArrays<nameRollType> = [
+  { name: "Sultana", roll: 20 },
+  { name: "Nayim", roll: 2 },
 ];

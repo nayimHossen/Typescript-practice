@@ -1,23 +1,28 @@
-type GenericTuples<x, y> = [x, y];
+// type GenericTuples<x, y> = [x, y];
 
-const relations: GenericTuples<string, string> = ["Nayim", "Sultana"];
+// const relations: GenericTuples<string, string> = ["Nayim", "Sultana"];
 
-type relationWithSalaryType = { name: string; salary: number };
+// type relationWithSalaryType = { name: string; salary: number };
 
-const relationWithSalaryOne: GenericTuples<relationWithSalaryType, string> = [
-  { name: "Nayim Hossen", salary: 2000 },
-  "Sultana",
-];
+// interface IRelationsWithSalary {
+//   name: string;
+//   salary: number;
+// }
 
-type GenericArrays<T> = Array<T>;
+// const relationWithSalaryOne: GenericTuples<IRelationsWithSalary, string> = [
+//   { name: "Nayim Hossen", salary: 2000 },
+//   "Sultana",
+// ];
 
-const rollNumbers3: GenericArrays<number> = [1, 2, 3, 4, 5];
-const rollNumbers4: GenericArrays<string> = ["1", "2", "3", "4", "5"];
-const rollNumbers5: GenericArrays<boolean> = [true, false];
+// type GenericArrays<T> = Array<T>;
 
-type nameRollType = { name: string; roll: number };
+// const rollNumbers3: GenericArrays<number> = [1, 2, 3, 4, 5];
+// const rollNumbers4: GenericArrays<string> = ["1", "2", "3", "4", "5"];
+// const rollNumbers5: GenericArrays<boolean> = [true, false];
 
-const userNameAndRollNumber: GenericArray<nameRollType> = [
-  { name: "Sultana", roll: 20 },
-  { name: "Nayim", roll: 2 },
-];
+// type nameRollType = { name: string; roll: number };
+
+// const userNameAndRollNumber: GenericArray<nameRollType> = [
+//   { name: "Sultana", roll: 20 },
+//   { name: "Nayim", roll: 2 },
+// ];
