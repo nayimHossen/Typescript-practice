@@ -1,32 +1,38 @@
-// const arrayOfNumber = [2, 3, 4];
+const arrayOfNumbers = [1, 2, 3];
 
-// const arrayOfString = arrayOfNumber.map((number) => number.toString());
-// console.log(arrayOfString);
+const arrayOfString = arrayOfNumbers.map((num) => num.toString());
 
-// type AreaNumber = {
-//   hight: number;
-//   width: number;
-// };
+type Volume = {
+  height: number;
+  width: number;
+  depth: number;
+};
 
-// type Area = {
-//   [key in "height" | "width"]: string;
-// };
+type AreaString = {
+  height: string;
+  width: String;
+};
 
-// type AreaString = {
-//   height: string;
-//   width: string;
-// };
+type AreaReadonly = {
+  readonly height: number;
+  readonly width: number;
+};
 
-// type AreaReadonly = {
-//   readonly height: number;
-//   readonly width: number;
-// };
+type Area<T> = {
+  readonly [key in keyof T]: T[key];
+};
 
-// const rectangulerArea: AreaReadonly = {
-//   hight: 10,
-//   width: 30,
-// };
-// rectangulerArea.width = 20;
+let areaOne: Area<{ height: number; width: string }> = {
+  height: 23,
+  width: "10",
+};
 
-// type A1 = AreaNumber["hight"];
-// type B1 = keyof AreaNumber;
+const rectangularArea: AreaReadonly = {
+  height: 10,
+  width: 20,
+};
+
+// rectangularArea.width = 10;
+
+// type A = AreaNumber["height"]; //look up type
+// type B = keyof AreaNumber; //width | height
