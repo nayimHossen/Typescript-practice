@@ -1,61 +1,58 @@
+//We use alias type for primitive type data
 type User = {
   name: string;
   age: number;
 };
 
-type ExtendsUser = User & {
+//type alias extends way
+type extendsUser = User & {
   role: string;
 };
 
-//we use interface for object
-//And type alias we use for primitive value
-
+//We use interface for object type data
 interface IUser {
   name: string;
   age: number;
 }
 
-//we can extends inter face
+//type alias function signature
+type addNumberTypes = (n: number, n1: number) => number;
 
-interface IExtendedUser extends IUser {
+//interface function signature
+interface IAddNumbers {
+  (n: number, n1: number): number;
+}
+
+const addNumber: addNumberTypes = (n: number, n1: number): number => n + n1;
+const addNumber2: IAddNumbers = (n: number, n1: number): number => n + n1;
+
+//Object, function, Array
+
+//interface extends way
+interface IExtendUser extends IUser {
   role: string;
 }
 
-type rollNumber = number;
-
-//Object, function, arrow all like object
-
-//we can make function signature type alias, for function type alias recommended
-
-type addNumberType = (num1: number, num2: number) => number;
-
-//we can also make function signature interface
-interface IAddNumber {
-  (num1: number, num2: number): number;
-}
-
-type rollNumberType = number[];
-
-interface IRollNumbers {
-  [index: number]: number;
-}
-
-const rollNumbers: IRollNumbers = [1, 2, 3, 4];
-
-const addNumber: IAddNumber = (num1, num2) => num1 + num2;
-
-const user4: IExtendedUser = {
-  name: "Kashem",
-  age: 2000,
+const userMan: IExtendUser = {
+  name: "Sultana",
+  age: 20,
   role: "unknown",
 };
 
-// const userWithTypeAlias: User = {
-//   name: "Nayim",
-//   age: 23,
-// };
+const userWithTypeAlias: User = {
+  name: "Sultana",
+  age: 23,
+};
 
-// const userWithInterface: IUser = {
-//   name: "salma",
-//   age: 40,
-// };
+const userWithTypeInterface: IUser = {
+  name: "Nayim Hossen",
+  age: 32,
+};
+
+//Number type and interface index array
+type rollNumberType = number[];
+interface IRollNumber {
+  [index: number]: number;
+}
+const rollNumbers: rollNumberType = [1, 2, 3];
+const rollNumbers2: IRollNumber = [1, 2, 3];
