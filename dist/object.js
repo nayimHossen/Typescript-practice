@@ -1,3 +1,4 @@
+"use strict";
 // const user1: {
 //   readonly company: "Programming Hero";
 //   name: string;
@@ -10,5 +11,4 @@
 //   age: 23,
 //   isMarried: false,
 // };
-
 // // user1.company = "Programming Hero Bangladesh";
